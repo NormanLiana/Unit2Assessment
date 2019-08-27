@@ -34,7 +34,6 @@ class ColorManipulatingViewController: UIViewController {
     
     @IBAction func alphaStepperChanged(_ sender: Any) {
         updateBackgroundColor()
-        print(alphaStepper.value)
     }
     
     @IBAction func sliderColorChange(_ sender: UISlider) {
