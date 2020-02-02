@@ -9,16 +9,17 @@
 import UIKit
 
 class CrayonListTableViewController: UITableViewController {
+    
+    // MARK: - Properties
     let crayonList = Crayon.allTheCrayons
 
-    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -29,9 +30,10 @@ class CrayonListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "crayonCell", for: indexPath)
-        cell.textLabel?.text = crayonList[indexPath.row].name
-        cell.detailTextLabel?.text = crayonList[indexPath.row].hex
-        cell.backgroundColor = UIColor(red:crayonList[indexPath.row].convertHexToCGFloatNumber(color: crayonList[indexPath.row].red), green: crayonList[indexPath.row].convertHexToCGFloatNumber(color: crayonList[indexPath.row].green), blue: crayonList[indexPath.row].convertHexToCGFloatNumber(color: crayonList[indexPath.row].blue), alpha: 1.0)
+        let crayon = crayonList[indexPath.row]
+        cell.textLabel?.text = crayon.name
+        cell.detailTextLabel?.text = crayon.hex
+        cell.backgroundColor = UIColor(red:crayon.convertHexToCGFloatNumber(color: crayon.red), green: crayon.convertHexToCGFloatNumber(color: crayon.green), blue: crayon.convertHexToCGFloatNumber(color: crayon.blue), alpha: 1.0)
         return cell
     }
     

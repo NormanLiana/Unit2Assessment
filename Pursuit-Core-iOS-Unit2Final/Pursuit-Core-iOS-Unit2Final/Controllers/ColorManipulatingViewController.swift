@@ -10,9 +10,7 @@ import UIKit
 
 class ColorManipulatingViewController: UIViewController {
     
-    var color: Crayon!
-    var originalColor: Crayon!
-    
+    // MARK: - UI Objects
     @IBOutlet weak var colorName: UILabel!
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
@@ -24,11 +22,15 @@ class ColorManipulatingViewController: UIViewController {
     @IBOutlet weak var liveBlueSliderValue: UILabel!
     @IBOutlet weak var alphaValueLabel: UILabel!
     
+    // MARK: - Properties
+    var color: Crayon!
+    var originalColor: Crayon!
+    
+    // MARK: - Actions
     @IBAction func resetColorsButton(_ sender: Any) {
         setUpViews()
         print(alphaStepper.value)
     }
-    
     
     @IBAction func alphaStepperChanged(_ sender: Any) {
         updateBackgroundColor()
@@ -51,17 +53,18 @@ class ColorManipulatingViewController: UIViewController {
         }
     }
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
     }
     
-    
-    func updateBackgroundColor() {
+    // MARK: - Private Methods
+    private func updateBackgroundColor() {
         self.view.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: CGFloat(alphaStepper.value))
     }
     
-    func setUpViews() {
+    private func setUpViews() {
         colorName.text = color.name
         redSlider.value = Float(color.convertHexToCGFloatNumber(color: color.red))
         greenSlider.value = Float(color.convertHexToCGFloatNumber(color: color.green))
