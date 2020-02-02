@@ -22,7 +22,7 @@ class ColorManipulatingViewController: UIViewController {
     @IBOutlet weak var liveRedSliderValue: UILabel!
     @IBOutlet weak var liveGreenSliderValue: UILabel!
     @IBOutlet weak var liveBlueSliderValue: UILabel!
-    
+    @IBOutlet weak var alphaValueLabel: UILabel!
     
     @IBAction func resetColorsButton(_ sender: Any) {
         setUpViews()
@@ -32,6 +32,7 @@ class ColorManipulatingViewController: UIViewController {
     
     @IBAction func alphaStepperChanged(_ sender: Any) {
         updateBackgroundColor()
+        alphaValueLabel.text = "This is the ALPHA value: \(alphaStepper.value)"
     }
     
     @IBAction func sliderColorChange(_ sender: UISlider) {
@@ -69,6 +70,7 @@ class ColorManipulatingViewController: UIViewController {
         liveRedSliderValue.text = "This is the RED value: \(color.convertHexToCGFloatNumber(color: color.red))"
         liveGreenSliderValue.text = "This is the GREEN value: \(color.convertHexToCGFloatNumber(color: color.green))"
         liveBlueSliderValue.text = "This is the BLUE value: \(color.convertHexToCGFloatNumber(color: color.blue).description)"
+        alphaValueLabel.text = "This is the ALPHA value: \(alphaStepper.value)"
     }
     
 
