@@ -22,9 +22,7 @@ class ColorManipulatingViewController: UIViewController {
     @IBOutlet weak var liveRedSliderValue: UILabel!
     @IBOutlet weak var liveGreenSliderValue: UILabel!
     @IBOutlet weak var liveBlueSliderValue: UILabel!
-    @IBOutlet weak var iAmRed: UILabel!
-    @IBOutlet weak var iAmGreen: UILabel!
-    @IBOutlet weak var iAmBlue: UILabel!
+    
     
     @IBAction func resetColorsButton(_ sender: Any) {
         setUpViews()
@@ -40,13 +38,13 @@ class ColorManipulatingViewController: UIViewController {
         switch sender.tag {
         case 0:
            updateBackgroundColor()
-            liveRedSliderValue.text = String(sender.value)
+            liveRedSliderValue.text = "This is the RED value: \(String(sender.value))"
         case 1:
             updateBackgroundColor()
-            liveGreenSliderValue.text = String(sender.value)
+            liveGreenSliderValue.text = "This is the GREEN value: \(String(sender.value))"
         case 2:
             updateBackgroundColor()
-            liveBlueSliderValue.text = String(sender.value)
+            liveBlueSliderValue.text = "This is the BLUE value: \(String(sender.value))"
         default:
             print("Something happened")
         }
@@ -68,9 +66,9 @@ class ColorManipulatingViewController: UIViewController {
         greenSlider.value = Float(color.convertHexToCGFloatNumber(color: color.green))
         blueSlider.value = Float(color.convertHexToCGFloatNumber(color: color.blue))
         view.backgroundColor = UIColor(red: color.convertHexToCGFloatNumber(color: color.red), green: color.convertHexToCGFloatNumber(color: color.green), blue: color.convertHexToCGFloatNumber(color: color.blue), alpha: 1.0)
-        liveRedSliderValue.text = color.convertHexToCGFloatNumber(color: color.red).description
-        liveGreenSliderValue.text = color.convertHexToCGFloatNumber(color: color.green).description
-        liveBlueSliderValue.text = color.convertHexToCGFloatNumber(color: color.blue).description
+        liveRedSliderValue.text = "This is the RED value: \(color.convertHexToCGFloatNumber(color: color.red))"
+        liveGreenSliderValue.text = "This is the GREEN value: \(color.convertHexToCGFloatNumber(color: color.green))"
+        liveBlueSliderValue.text = "This is the BLUE value: \(color.convertHexToCGFloatNumber(color: color.blue).description)"
     }
     
 
