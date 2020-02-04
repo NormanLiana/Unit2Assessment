@@ -47,21 +47,4 @@ class Crayon {
     }
     
     
-//    I ORIGINALLY HAD THESE FUNCTION IN HERE BUT THEY ARE NOT NEEDED
-    
-    
-//    func updateRed(red: CGFloat) {
-//        self.red = Double(red)
-//    }
-//
-//    func updateGreen(green: CGFloat) {
-//        self.green = Double(green)
-//    }
-//
-//    func updateBlue(blue: CGFloat) {
-//        self.blue = Double(blue)
-//    }
-    
-    
-    
 }
